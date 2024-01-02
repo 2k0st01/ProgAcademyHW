@@ -2,11 +2,12 @@ package homework;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Group {
 
 	private String groupName;
-	private Student[] studens = new Student[10];
+	private Student[] students = new Student[10];
 
 	public Group(String groupName) {
 		super();
@@ -26,55 +27,82 @@ public class Group {
 	}
 	
 	public Student[] getStudens() {
-		return studens;
+		return students;
 	}
 
 	public void setStudens(Student[] studens) {
-		this.studens = studens;
+		this.students = studens;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Group group = (Group) o;
+		return Objects.equals(groupName, group.groupName) && Arrays.equals(students, group.students);
+	}
+
+	@Override
+	public int hashCode() {
+		int result = Objects.hash(groupName);
+		result = 31 * result + Arrays.hashCode(students);
+		return result;
+	}
+
+	public boolean equivalentStudents() {
+		for (int i = 0; i < students.length - 1; i++) {
+			for (int j = i + 1; j < students.length; j++) {
+				if (students[i] != null && students[i].equals(students[j])) {
+					System.out.println("Students " + (i+1) + " and " + (j+1) + " are equivalent.");
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public void addStudent(Student student) throws GroupOverflowException {
-		for (int i = 0; i < studens.length + 1; i++) {
-			if (i >= studens.length) {
+		for (int i = 0; i < students.length + 1; i++) {
+			if (i >= students.length) {
 				throw new GroupOverflowException("Group over flow. Alread full");
-			} else if (studens[i] == null) {
-				studens[i] = student;
+			} else if (students[i] == null) {
+				students[i] = student;
 				return;
 			}
 		}
 	}
 
 	public Student searchStudentByLastName(String lastName) throws StudentNotFoundException {
-		for (int i = 0; i < studens.length; i++) {
-			if (studens[i] != null && studens[i].getLastName().equals(lastName)){
-				return studens[i];
+		for (int i = 0; i < students.length; i++) {
+			if (students[i] != null && students[i].getLastName().equals(lastName)){
+				return students[i];
 			}
 		}
 		throw new StudentNotFoundException("We are dont have this student in this group");
 	}
 
 	public boolean removeStudentByID(int id) {
-		for (int i = 0; i < studens.length; i++) {
-			if (studens[i].getId() == id) {
-				studens[i] = null;
+		for (int i = 0; i < students.length; i++) {
+			if (students[i].getId() == id) {
+				students[i] = null;
 				return true;
 			}
 		}
 		return false;
 	}
 	public void showAllStudents() {
-		for(Student st : studens) {
+		for(Student st : students) {
 			System.out.println(st);
 		}
 	}
 	
 	public void sortStudentsByLastName(){
-		Arrays.sort(studens, Comparator.nullsFirst(new SortStudensByName()));
+		Arrays.sort(students, Comparator.nullsFirst(new SortStudensByName()));
 	}
 	
 	@Override
 	public String toString() {
-		return "Group [groupName=" + groupName + ", studens=" + Arrays.toString(studens) + "]";
+		return "Group [groupName=" + groupName + ", studens=" + Arrays.toString(students) + "]";
 	}
 	
 	
