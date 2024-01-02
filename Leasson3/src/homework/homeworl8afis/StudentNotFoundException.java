@@ -1,35 +1,35 @@
-package homework;
+package homeworl8afis;
 
-public class GroupOverflowException extends Exception{
+public class StudentNotFoundException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	public GroupOverflowException() {
+	public StudentNotFoundException() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public GroupOverflowException(String message, Throwable cause, boolean enableSuppression,
+	public StudentNotFoundException(String message, Throwable cause, boolean enableSuppression,
 			boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
 
-	public GroupOverflowException(String message, Throwable cause) {
+	public StudentNotFoundException(String message, Throwable cause) {
 		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public GroupOverflowException(String message) {
+	public StudentNotFoundException(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
 
-	public GroupOverflowException(Throwable cause) {
+	public StudentNotFoundException(Throwable cause) {
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
+	
+	
 }

@@ -1,6 +1,4 @@
-package homework;
-
-import java.io.File;
+package homeworl8afis;
 
 public class Main {
 
