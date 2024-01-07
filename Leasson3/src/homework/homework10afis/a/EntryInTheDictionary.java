@@ -1,4 +1,4 @@
-package homeworl10afis.a;
+package homework10afis.a;
 
 import java.io.*;
 import java.util.*;
@@ -9,15 +9,14 @@ public class EntryInTheDictionary {
 
     public void addWords(File save) {
         System.out.println("Write the English word: ");
-        String eng = "";
-        eng = sc.nextLine();
+        String eng = sc.nextLine();
         System.out.println("Write a translation in Ukrainian: ");
         String ua = sc.nextLine();
         saveWords.put(eng, ua);
-        saveWorldsToCSVFile(save, saveWords);
+        saveWordsToCSVFile(save, saveWords);
     }
 
-    private void saveWorldsToCSVFile(File save, Map<String, String> saveWords) {
+    private void saveWordsToCSVFile(File save, Map<String, String> saveWords) {
         Set<String> keys = saveWords.keySet();
         try (PrintWriter pw = new PrintWriter(new FileWriter(save, true))) {
             for (String k : keys) {
@@ -45,9 +44,9 @@ public class EntryInTheDictionary {
         Set<String> keys = dictionary.keySet();
         for (String k : keys) {
             if (word.equals(k)) {
-                return k + ";" + dictionary.get(k);
+                return k + " = " + dictionary.get(k);
             } else if(word.equals(dictionary.get(k))){
-                return k + ";" + dictionary.get(k);
+                return k + " = " + dictionary.get(k);
             }
 
         }

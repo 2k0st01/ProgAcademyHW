@@ -1,4 +1,4 @@
-package homeworl10afis.a;
+package homework10afis.a;
 
 import java.io.File;
 

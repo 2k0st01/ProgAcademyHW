@@ -1,4 +1,4 @@
-package homeworl10afis.b;
+package homework10afis.b;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,13 +9,13 @@ public class Main {
         File file = new File("/Users/staskosto/Documents/JAVA START/text.txt");
 
         try {
-            calculeteABC(file);
+            calculateABC(file);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static void calculeteABC(File file) throws FileNotFoundException {
+    public static void calculateABC(File file) throws FileNotFoundException {
         Map<String, Integer> abc = new HashMap<>();
         Scanner sc = new Scanner(file);
         String wordsFromFile = sc.nextLine();
