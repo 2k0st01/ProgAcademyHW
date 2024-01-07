@@ -28,11 +28,12 @@ public class EntryInTheDictionary {
     }
 
     public String getWord(File file) {
-        String word;
-        System.out.println("Write the word you want to find.");
-        word = sc.nextLine();
         Map<String, String> dictionary = new HashMap<>();
+        Set<String> keys = dictionary.keySet();
         String[] temp;
+        System.out.println("Write the word you want to find.");
+        String word = sc.nextLine();
+
         try (Scanner sc = new Scanner(file)) {
             while (sc.hasNextLine()) {
                 temp = sc.nextLine().split(";");
@@ -41,7 +42,7 @@ public class EntryInTheDictionary {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Set<String> keys = dictionary.keySet();
+
         for (String k : keys) {
             if (word.equals(k)) {
                 return k + " = " + dictionary.get(k);

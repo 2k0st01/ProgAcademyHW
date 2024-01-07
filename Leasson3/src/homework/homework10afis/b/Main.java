@@ -24,6 +24,7 @@ public class Main {
         while (sc.hasNextLine()) {
             wordsFromFile += sc.nextLine();
         }
+
         wordsFromFile = wordsFromFile.toLowerCase().replaceAll("\\W", "");
         char[] getTemp = wordsFromFile.toCharArray();
 
