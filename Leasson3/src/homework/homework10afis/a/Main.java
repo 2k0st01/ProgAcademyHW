@@ -4,11 +4,10 @@ import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-        EntryInTheDictionary entryInTheDictionary = new EntryInTheDictionary();
+        Dictionary Dictionary = new Dictionary();
         File save = new File("save.csv");
 
-        entryInTheDictionary.addWords(save);
-        System.out.println(entryInTheDictionary.getWord(save));
-
+        Dictionary.addWordInDictionary(save);
+        System.out.println(Dictionary.getWordFromDictionary(save));
     }
 }

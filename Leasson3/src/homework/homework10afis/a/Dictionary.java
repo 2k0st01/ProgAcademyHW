@@ -3,11 +3,11 @@ package homework10afis.a;
 import java.io.*;
 import java.util.*;
 
-public class EntryInTheDictionary {
+public class Dictionary {
     Scanner sc = new Scanner(System.in);
     Map<String, String> saveWords = new HashMap<>();
 
-    public void addWords(File save) {
+    public void addWordInDictionary(File save) {
         System.out.println("Write the English word: ");
         String eng = sc.nextLine();
         System.out.println("Write a translation in Ukrainian: ");
@@ -27,17 +27,17 @@ public class EntryInTheDictionary {
         }
     }
 
-    public String getWord(File file) {
+    public String getWordFromDictionary(File file) {
         Map<String, String> dictionary = new HashMap<>();
         Set<String> keys = dictionary.keySet();
-        String[] temp;
+        String[] tempStringForGetWordsFromFileCSV;
         System.out.println("Write the word you want to find.");
         String word = sc.nextLine();
 
         try (Scanner sc = new Scanner(file)) {
             while (sc.hasNextLine()) {
-                temp = sc.nextLine().split(";");
-                dictionary.put(temp[0], temp[1]);
+                tempStringForGetWordsFromFileCSV = sc.nextLine().split(";");
+                dictionary.put(tempStringForGetWordsFromFileCSV[0], tempStringForGetWordsFromFileCSV[1]);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,7 +49,6 @@ public class EntryInTheDictionary {
             } else if(word.equals(dictionary.get(k))){
                 return k + " = " + dictionary.get(k);
             }
-
         }
         return "You don't have this word in your dictionary";
     }
