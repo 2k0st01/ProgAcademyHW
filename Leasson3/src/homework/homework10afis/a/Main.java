@@ -7,8 +7,8 @@ public class Main {
         Dictionary Dictionary = new Dictionary();
         File save = new File("save.csv");
 
-        Dictionary.addWordInDictionary(save);
-        System.out.println(Dictionary.getWordFromDictionary(save));
+//        Dictionary.addWordInDictionary(save);
+        System.out.println(Dictionary.getTheWordTranslationFromTheDictionary(save));
         System.out.println(Dictionary.getAllWordsFromDictionary(save));
     }
 }

@@ -1,7 +1,14 @@
 package homework10afis.a;
 
-import java.io.*;
-import java.util.*;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
 
 public class Dictionary {
     Scanner sc = new Scanner(System.in);
@@ -27,9 +34,7 @@ public class Dictionary {
         }
     }
 
-    public String getWordFromDictionary(File file) {
-        Map<String, String> dictionary = new HashMap<>();
-        Set<String> keys = dictionary.keySet();
+    public String getTheWordTranslationFromTheDictionary(File file) {
         String[] tempStringForGetWordsFromFileCSV;
         System.out.println("Write the word you want to find.");
         String word = sc.nextLine();
@@ -37,25 +42,19 @@ public class Dictionary {
         try (Scanner sc = new Scanner(file)) {
             while (sc.hasNextLine()) {
                 tempStringForGetWordsFromFileCSV = sc.nextLine().split(";");
-                dictionary.put(tempStringForGetWordsFromFileCSV[0], tempStringForGetWordsFromFileCSV[1]);
+                if (tempStringForGetWordsFromFileCSV[0].equals(word) || tempStringForGetWordsFromFileCSV[1].equals(word)) {
+                    return tempStringForGetWordsFromFileCSV[0] + " = " + tempStringForGetWordsFromFileCSV[1];
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        for (String k : keys) {
-            if (word.equals(k)) {
-                return k + " = " + dictionary.get(k);
-            } else if(word.equals(dictionary.get(k))){
-                return k + " = " + dictionary.get(k);
-            }
-        }
         return "You don't have this word in your dictionary";
     }
 
-    public Map<String,String> getAllWordsFromDictionary(File file){
+    public Map<String, String> getAllWordsFromDictionary(File file) {
         Map<String, String> dictionary = new HashMap<>();
-        Set<String> keys = dictionary.keySet();
         String[] tempStringForGetWordsFromFileCSV;
 
         try (Scanner sc = new Scanner(file)) {
