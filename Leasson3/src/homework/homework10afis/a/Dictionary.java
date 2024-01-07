@@ -52,4 +52,21 @@ public class Dictionary {
         }
         return "You don't have this word in your dictionary";
     }
+
+    public Map<String,String> getAllWordsFromDictionary(File file){
+        Map<String, String> dictionary = new HashMap<>();
+        Set<String> keys = dictionary.keySet();
+        String[] tempStringForGetWordsFromFileCSV;
+
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                tempStringForGetWordsFromFileCSV = sc.nextLine().split(";");
+                dictionary.put(tempStringForGetWordsFromFileCSV[0], tempStringForGetWordsFromFileCSV[1]);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return dictionary;
+    }
 }

@@ -9,5 +9,6 @@ public class Main {
 
         Dictionary.addWordInDictionary(save);
         System.out.println(Dictionary.getWordFromDictionary(save));
+        System.out.println(Dictionary.getAllWordsFromDictionary(save));
     }
 }
