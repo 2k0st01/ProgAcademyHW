@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Dictionary {
     Scanner sc = new Scanner(System.in);
-    Map<String, String> saveWords = new HashMap<>();
 
     public void addWordInDictionary(File save) {
+        Map<String, String> saveWords = new HashMap<>();
         System.out.println("Write the English word: ");
         String eng = sc.nextLine();
         System.out.println("Write a translation in Ukrainian: ");
