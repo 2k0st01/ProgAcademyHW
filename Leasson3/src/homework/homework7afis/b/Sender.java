@@ -21,13 +21,13 @@ public class Sender implements Runnable{
         byte[] buffer = new byte[1024];
         try (FileInputStream fis = new FileInputStream(mtf.getFileIn())) {
             readByte(fis, buffer);
-            for (; mtf.getSizeInBytes() > 0; ) {
+            while (mtf.getSizeInBytes() > 0) {
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                buffer = new byte[1024];
+                buffer = new byte[((int) mtf.getSizeInBytes()) - ((int) mtf.getSizeInBytes() /2)];
                 readByte(fis, buffer);
             }
             mtf.setStop(true);

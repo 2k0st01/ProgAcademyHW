@@ -22,8 +22,8 @@ class MultiCopyFile{
         return sizeInBytes;
     }
 
-    public void setSizeInBytes(long possibleForUse) {
-        this.sizeInBytes = possibleForUse;
+    public void setSizeInBytes(long sizeInBytes) {
+        this.sizeInBytes = sizeInBytes;
     }
 
     public long getPercent(){
@@ -32,7 +32,7 @@ class MultiCopyFile{
     }
 
     public synchronized byte[] getBytesArray() {
-        while (turn = false){
+        while (turn == false){
             try{
                 wait();
             } catch (InterruptedException e){
@@ -45,7 +45,7 @@ class MultiCopyFile{
     }
 
     public synchronized void setBytesArray(byte[] arr) {
-        for (; turn == true; ) {
+        while ( turn == true ) {
             try {
                 wait();
             } catch (InterruptedException e) {

@@ -15,6 +15,6 @@ public class Progress implements Runnable{
                 System.out.println(percent + " % done");
             }
         }
-        System.out.println("Complited");
+        System.out.println("Completed");
     }
 }
