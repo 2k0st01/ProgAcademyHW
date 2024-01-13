@@ -18,7 +18,7 @@ class MultiCopyFile{
         return fileIn;
     }
 
-    public long getPossibleForUse() {
+    public long getSizeInBytes() {
         return sizeInBytes;
     }
 
@@ -27,7 +27,7 @@ class MultiCopyFile{
     }
 
     public long getPercent(){
-        this.percent = (fileIn.length() - getPossibleForUse()) / (fileIn.length() / 100);
+        this.percent = (fileIn.length() - getSizeInBytes()) / (fileIn.length() / 100);
         return percent;
     }
 
