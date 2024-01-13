@@ -13,7 +13,7 @@ public class Sender implements Runnable{
     private void readByte(FileInputStream fis, byte[] buffer) throws IOException {
         fis.read(buffer);
         mtf.setBytesArray(buffer);
-        mtf.setPossibleForUse(mtf.getPossibleForUse() - buffer.length);
+        mtf.setSizeInBytes(mtf.getPossibleForUse() - buffer.length);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Sender implements Runnable{
             readByte(fis, buffer);
             for (; mtf.getPossibleForUse() > 0; ) {
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(50);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

@@ -7,7 +7,7 @@ class MultiCopyFile{
     boolean turn = false;
     boolean stop;
     private File fileIn = new File ("DWSample3-TXT.txt");
-    private long possibleForUse = fileIn.length();
+    private long sizeInBytes = fileIn.length();
     private long percent;
 
     public MultiCopyFile() {
@@ -18,16 +18,12 @@ class MultiCopyFile{
         return fileIn;
     }
 
-    public void setFileIn(File fileIn){
-        this.fileIn = fileIn;
-    }
-
     public long getPossibleForUse() {
-        return possibleForUse;
+        return sizeInBytes;
     }
 
-    public void setPossibleForUse(long possibleForUse) {
-        this.possibleForUse = possibleForUse;
+    public void setSizeInBytes(long possibleForUse) {
+        this.sizeInBytes = possibleForUse;
     }
 
     public long getPercent(){

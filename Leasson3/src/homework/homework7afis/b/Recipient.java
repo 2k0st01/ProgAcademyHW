@@ -12,14 +12,6 @@ public class Recipient implements Runnable {
         this.mcf = mcf;
     }
 
-    public File getFileOut() {
-        return fileOut;
-    }
-
-    public void setFileOut(File fileOut) {
-        this.fileOut = fileOut;
-    }
-
     @Override
     public void run() {
         try (FileOutputStream fos = new FileOutputStream(fileOut)) {
