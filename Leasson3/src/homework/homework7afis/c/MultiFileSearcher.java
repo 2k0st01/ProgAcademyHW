@@ -3,7 +3,6 @@ package homework7afis.c;
 import java.io.File;
 
 public class MultiFileSearcher implements Runnable {
-    private Counter threadCounter = new Counter();
     private File[] folders;
     private File folderWherNeedToFindFile;
     private String fileNeedToFind;
@@ -19,7 +18,6 @@ public class MultiFileSearcher implements Runnable {
     }
 
     public boolean searshFileByName(File folderName, String fileName) {
-        threadCounter.setCounter(threadCounter.getCounter()+1);
         if (folders == null) {
             return false;
         }
